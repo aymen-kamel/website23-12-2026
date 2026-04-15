@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 interface HeroSectionProps {
@@ -16,6 +17,30 @@ const FloatingHeart = ({ delay, left, size }: { delay: number; left: string; siz
 );
 
 const HeroSection = ({ onStart }: HeroSectionProps) => {
+  const startDate = new Date("2024-10-26T00:00:00");
+  const [timeTogether, setTimeTogether] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date();
+      const diff = now.getTime() - startDate.getTime();
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      setTimeTogether({ days, hours, minutes, seconds });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4">
       {/* Floating hearts background */}
@@ -24,6 +49,38 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
       <FloatingHeart delay={2} left="75%" size={28} />
       <FloatingHeart delay={0.5} left="85%" size={20} />
       <FloatingHeart delay={1.5} left="50%" size={16} />
+
+      <motion.div
+        className="mb-8 bg-white/30 backdrop-blur-md px-6 py-3 rounded-2xl shadow-sm border border-white/40"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <p className="text-sm font-semibold text-primary uppercase tracking-[0.2em] text-center mb-2">
+          Together Since Oct 26, 2024
+        </p>
+        <div className="flex gap-4 justify-center font-mono text-2xl font-bold text-foreground">
+          <div className="flex flex-col items-center leading-none">
+            <span>{timeTogether.days}</span>
+            <span className="text-[10px] uppercase font-sans mt-1">Days</span>
+          </div>
+          <span className="animate-pulse">:</span>
+          <div className="flex flex-col items-center leading-none">
+            <span>{timeTogether.hours}</span>
+            <span className="text-[10px] uppercase font-sans mt-1">Hrs</span>
+          </div>
+          <span className="animate-pulse">:</span>
+          <div className="flex flex-col items-center leading-none">
+            <span>{timeTogether.minutes}</span>
+            <span className="text-[10px] uppercase font-sans mt-1">Min</span>
+          </div>
+          <span className="animate-pulse">:</span>
+          <div className="flex flex-col items-center leading-none text-primary">
+            <span>{timeTogether.seconds}</span>
+            <span className="text-[10px] uppercase font-sans mt-1">Sec</span>
+          </div>
+        </div>
+      </motion.div>
 
       <motion.h1
         className="font-romantic text-5xl md:text-7xl lg:text-8xl text-gradient-love text-center mb-6"

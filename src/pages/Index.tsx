@@ -5,6 +5,7 @@ import StorySection from "@/components/StorySection";
 import FunnyGeneratorSection from "@/components/FunnyGeneratorSection";
 import HeartCatchGame from "@/components/HeartCatchGame";
 import MemoriesSection from "@/components/MemoriesSection";
+import BucketListSection from "@/components/BucketListSection";
 import LoveMessageSection from "@/components/LoveMessageSection";
 import FinalSection from "@/components/FinalSection";
 
@@ -28,6 +29,7 @@ const Index = () => {
         <FunnyGeneratorSection />
         <HeartCatchGame />
         <MemoriesSection />
+        <BucketListSection />
         <LoveMessageSection />
         <FinalSection onReplay={scrollToTop} />
       </div>
