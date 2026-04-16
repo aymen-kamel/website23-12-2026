@@ -6,6 +6,7 @@ import FunnyGeneratorSection from "@/components/FunnyGeneratorSection";
 import HeartCatchGame from "@/components/HeartCatchGame";
 import MemoriesSection from "@/components/MemoriesSection";
 import BucketListSection from "@/components/BucketListSection";
+import DailyMessageSection from "@/components/DailyMessageSection";
 import LoveMessageSection from "@/components/LoveMessageSection";
 import FinalSection from "@/components/FinalSection";
 
@@ -26,6 +27,7 @@ const Index = () => {
       <div ref={contentRef}>
         <LoveQuestionSection />
         <StorySection />
+        <DailyMessageSection />
         <FunnyGeneratorSection />
         <HeartCatchGame />
         <MemoriesSection />
