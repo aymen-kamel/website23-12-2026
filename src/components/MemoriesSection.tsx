@@ -12,40 +12,44 @@ const memories = [
 
 const MemoriesSection = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20 bg-love-light/10">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20 bg-background/50">
       <motion.h2
-        className="font-romantic text-4xl md:text-5xl text-gradient-love text-center mb-12"
+        className="font-romantic text-4xl md:text-5xl text-primary text-center mb-12"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        Our Beautiful Memories 📸
+        Moments I Miss Every Day 📸
       </motion.h2>
+      
+      <p className="text-muted-foreground text-center max-w-md mb-16 italic">
+        I look at these photos and videos every night, wishing I could go back and be the man you deserve.
+      </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full">
         {memories.map((mem, i) => (
           <motion.div
             key={i}
-            className="group relative bg-card rounded-3xl overflow-hidden shadow-2xl border border-border/50 backdrop-blur-sm"
+            className="group relative bg-card rounded-3xl overflow-hidden shadow-2xl border border-white/5 backdrop-blur-sm"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
             whileHover={{ y: -12, scale: 1.02 }}
           >
-            <div className="aspect-[4/5] w-full overflow-hidden flex items-center justify-center bg-muted relative">
+            <div className="aspect-[4/5] w-full overflow-hidden flex items-center justify-center bg-muted/20 relative">
               {mem.type === "image" && (
                 <img
                   src={mem.src}
                   alt={mem.caption}
-                  className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${mem.className || ""}`}
+                  className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0 ${mem.className || ""}`}
                 />
               )}
               {mem.type === "video" && (
                 <video
                   src={mem.src}
                   controls
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all"
                   poster="/placeholder.svg"
                 />
               )}
@@ -54,7 +58,7 @@ const MemoriesSection = () => {
               )}
 
               {mem.date && (
-                <div className="absolute top-4 left-4 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-primary shadow-sm">
+                <div className="absolute top-4 left-4 bg-background/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-primary shadow-sm">
                   {mem.date}
                 </div>
               )}

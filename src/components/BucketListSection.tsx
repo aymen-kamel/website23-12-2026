@@ -3,12 +3,12 @@ import { Check, Heart } from "lucide-react";
 import { useState } from "react";
 
 const initialItems = [
-  { id: 1, icon: "🌅", text: "Watch a sunrise on the beach", completed: true, rot: -2 },
-  { id: 2, icon: "✈️", text: "Travel to another country together", completed: false, rot: 3 },
-  { id: 3, icon: "🧺", text: "Have a picnic in a park", completed: true, rot: -4 },
-  { id: 4, icon: "👩‍🍳", text: "Cook a 3-course dinner together", completed: false, rot: 2 },
-  { id: 5, icon: "🚗", text: "Go on a spontaneous road trip", completed: false, rot: -3 },
-  { id: 6, icon: "💍", text: "Say 'I do' one day...", completed: false, rot: 4 },
+  { id: 1, icon: "🌅", text: "Watch a sunrise on the beach (again)", completed: false, rot: -2 },
+  { id: 2, icon: "✈️", text: "Finally travel the world with you", completed: false, rot: 3 },
+  { id: 3, icon: "🧺", text: "Have that picnic we always talked about", completed: false, rot: -4 },
+  { id: 4, icon: "👩‍🍳", text: "Cook a 3-course dinner for you", completed: false, rot: 2 },
+  { id: 5, icon: "🚗", text: "Go on a road trip just to talk", completed: false, rot: -3 },
+  { id: 6, icon: "💍", text: "Fix this and never let go again", completed: false, rot: 4 },
 ];
 
 const BucketListSection = () => {
@@ -31,18 +31,18 @@ const BucketListSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20 bg-love/5 overflow-hidden">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20 bg-background overflow-hidden">
       <motion.div
         className="text-center mb-16"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <h2 className="font-romantic text-4xl md:text-6xl text-gradient-love mb-4 drop-shadow-sm">
-          Our Future Vision Board ✨
+        <h2 className="font-romantic text-4xl md:text-6xl text-primary mb-4 drop-shadow-sm">
+          Things I Hope We Can Still Do... 🕯️
         </h2>
         <p className="text-muted-foreground italic text-lg max-w-md mx-auto">
-          Tap any card to mark our dreams as reality! ❤️
+          These were our dreams. I'm still holding on to them...
         </p>
       </motion.div>
 
@@ -70,10 +70,10 @@ const BucketListSection = () => {
             >
               {/* Front of Card */}
               <div
-                className="absolute inset-0 bg-card shadow-xl rounded-3xl p-6 flex flex-col items-center justify-center text-center border border-border/60"
+                className="absolute inset-0 bg-card shadow-2xl rounded-3xl p-6 flex flex-col items-center justify-center text-center border border-white/5 backdrop-blur-md"
                 style={{ backfaceVisibility: "hidden" }}
               >
-                <div className="text-6xl mb-4 bg-secondary/30 p-4 rounded-full shadow-inner">
+                <div className="text-6xl mb-4 bg-primary/5 p-4 rounded-full shadow-inner grayscale opacity-60">
                   {item.icon}
                 </div>
                 <p className="text-lg font-medium text-foreground leading-tight">
@@ -88,7 +88,7 @@ const BucketListSection = () => {
                       animate={{ opacity: 1, scale: 2 }}
                       exit={{ opacity: 0 }}
                     >
-                      <Heart className="w-32 h-32 text-primary fill-primary opacity-30" />
+                      <Heart className="w-32 h-32 text-primary fill-primary opacity-20" />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -96,18 +96,18 @@ const BucketListSection = () => {
 
               {/* Back of Card (Completed) */}
               <div
-                className="absolute inset-0 bg-gradient-to-br from-primary/10 to-romantic-light/40 shadow-xl rounded-3xl p-6 flex flex-col items-center justify-center text-center border-2 border-primary/40"
+                className="absolute inset-0 bg-gradient-to-br from-primary/20 to-background shadow-2xl rounded-3xl p-6 flex flex-col items-center justify-center text-center border-2 border-primary/20"
                 style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
               >
                 <motion.div 
-                  className="bg-white p-4 rounded-full shadow-lg mb-4"
+                  className="bg-primary/20 p-4 rounded-full shadow-lg mb-4"
                   initial={{ scale: 0 }}
                   animate={{ scale: item.completed ? 1 : 0 }}
                   transition={{ delay: 0.2, type: "spring" }}
                 >
-                  <Check className="w-10 h-10 text-primary" strokeWidth={3} />
+                  <Heart className="w-10 h-10 text-primary fill-primary" />
                 </motion.div>
-                <h3 className="font-romantic text-4xl text-primary mb-2">Done!</h3>
+                <h3 className="font-romantic text-3xl text-primary mb-2 italic">I still hope for this...</h3>
                 <p className="text-sm font-semibold text-foreground/80">{item.text}</p>
               </div>
             </motion.div>

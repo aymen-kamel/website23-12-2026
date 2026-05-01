@@ -2,11 +2,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const chatMessages = [
-  { sender: "him", text: "Did you see that goal? Barca is cooking! 🔥", delay: 1000 },
-  { sender: "her", text: "Real Madrid will come back, just watch! 🙄", delay: 2500 },
-  { sender: "him", text: "4-0... I don't think so! 😎💙❤️", delay: 4000 },
-  { sender: "her", text: "Fine... maybe they were good today. 😂", delay: 5500 },
-  { sender: "him", text: "And that was the start of something better than any game.", delay: 7000 },
+  { sender: "him", text: "Everything started so perfectly that night of El Clásico... ⚽", delay: 1000 },
+  { sender: "her", text: "It really did. I thought we were forever. ❤️", delay: 2500 },
+  { sender: "him", text: "But then I did the unthinkable. I betrayed your trust. 💔", delay: 4000 },
+  { sender: "her", text: "I can't believe you did that to us... 😔", delay: 5500 },
+  { sender: "him", text: "I'm a fool, and I'd give anything to go back and change it.", delay: 7000 },
 ];
 
 const StorySection = () => {
@@ -24,7 +24,7 @@ const StorySection = () => {
   }, [currentIndex, started]);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20 bg-gradient-to-b from-secondary/20 to-romantic/5">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20 bg-gradient-to-b from-background to-primary/5">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -32,14 +32,14 @@ const StorySection = () => {
         onViewportEnter={() => setStarted(true)}
         className="text-center mb-16"
       >
-        <h2 className="font-romantic text-4xl md:text-6xl text-gradient-love mb-4">
-          How it all began...
+        <h2 className="font-romantic text-4xl md:text-6xl text-primary mb-4">
+          How I Ruined Our Story...
         </h2>
-        <p className="text-muted-foreground italic truncate">October 26, 2024 • The Night of El Clásico</p>
+        <p className="text-muted-foreground italic">My biggest regret began where our best memories were made.</p>
       </motion.div>
 
-      <div className="max-w-md w-full relative bg-white/40 backdrop-blur-xl rounded-[2rem] p-8 shadow-2xl border border-white/60 min-h-[450px] flex flex-col">
-        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 via-red-600 to-blue-600 rounded-t-[2rem]" />
+      <div className="max-w-md w-full relative bg-card/40 backdrop-blur-xl rounded-[2rem] p-8 shadow-2xl border border-white/10 min-h-[450px] flex flex-col">
+        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-romantic to-primary rounded-t-[2rem] opacity-50" />
         
         <div className="space-y-6 flex-grow overflow-hidden">
           <AnimatePresence>
@@ -52,10 +52,10 @@ const StorySection = () => {
                 className={`flex ${msg.sender === "him" ? "justify-start" : "justify-end"}`}
               >
                 <div
-                  className={`max-w-[80%] px-5 py-3 rounded-2xl text-sm md:text-base shadow-sm ${
+                  className={`max-w-[80%] px-5 py-3 rounded-2xl text-sm md:text-base shadow-lg ${
                     msg.sender === "him"
-                      ? "bg-blue-600 text-white rounded-bl-none"
-                      : "bg-red-600 text-white rounded-br-none"
+                      ? "bg-primary/20 text-foreground border border-primary/20 rounded-bl-none"
+                      : "bg-secondary text-foreground rounded-br-none"
                   }`}
                 >
                   {msg.text}
@@ -70,9 +70,9 @@ const StorySection = () => {
               animate={{ opacity: 1 }} 
               className="flex justify-start gap-1 p-2"
             >
-              <div className="w-2 h-2 bg-muted-foreground/30 rounded-full animate-bounce" />
-              <div className="w-2 h-2 bg-muted-foreground/30 rounded-full animate-bounce [animation-delay:0.2s]" />
-              <div className="w-2 h-2 bg-muted-foreground/30 rounded-full animate-bounce [animation-delay:0.4s]" />
+              <div className="w-2 h-2 bg-primary/30 rounded-full animate-bounce" />
+              <div className="w-2 h-2 bg-primary/30 rounded-full animate-bounce [animation-delay:0.2s]" />
+              <div className="w-2 h-2 bg-primary/30 rounded-full animate-bounce [animation-delay:0.4s]" />
             </motion.div>
           )}
         </div>
@@ -81,10 +81,10 @@ const StorySection = () => {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-8 pt-6 border-t border-dashed border-muted-foreground/20 text-center"
+            className="mt-8 pt-6 border-t border-dashed border-primary/20 text-center"
           >
-            <p className="font-romantic text-2xl text-primary animate-pulse">
-              And I'm so glad I sent that first message ❤️
+            <p className="font-romantic text-2xl text-primary animate-pulse italic">
+              I'm fighting to win you back, because you're worth it. 🕯️
             </p>
           </motion.div>
         )}

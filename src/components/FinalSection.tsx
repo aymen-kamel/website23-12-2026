@@ -6,29 +6,31 @@ interface FinalSectionProps {
 }
 
 const FinalSection = ({ onReplay }: FinalSectionProps) => {
-  const floatingHearts = useMemo(
+  const floatingElements = useMemo(
     () =>
-      Array.from({ length: 20 }, (_, i) => ({
+      Array.from({ length: 25 }, (_, i) => ({
         id: i,
         left: `${Math.random() * 100}%`,
-        delay: Math.random() * 5,
-        duration: 4 + Math.random() * 4,
+        delay: Math.random() * 7,
+        duration: 5 + Math.random() * 5,
         size: 14 + Math.random() * 20,
+        emoji: Math.random() > 0.5 ? "💔" : "🕯️",
       })),
     []
   );
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-20 overflow-hidden">
-      {/* Floating hearts */}
-      {floatingHearts.map((h) => (
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-20 overflow-hidden bg-background">
+      {/* Floating elements */}
+      {floatingElements.map((h) => (
         <motion.span
           key={h.id}
-          className="absolute pointer-events-none"
+          className="absolute pointer-events-none opacity-20"
           style={{ left: h.left, bottom: -30, fontSize: h.size }}
           animate={{
-            y: [0, -window.innerHeight - 50],
-            opacity: [0, 1, 1, 0],
+            y: [0, -window.innerHeight - 100],
+            opacity: [0, 0.4, 0.4, 0],
+            rotate: [0, 360],
           }}
           transition={{
             duration: h.duration,
@@ -37,41 +39,41 @@ const FinalSection = ({ onReplay }: FinalSectionProps) => {
             ease: "linear",
           }}
         >
-          ❤️
+          {h.emoji}
         </motion.span>
       ))}
 
       <motion.h2
-        className="font-romantic text-5xl md:text-7xl text-gradient-love text-center mb-8 z-10"
+        className="font-romantic text-5xl md:text-7xl lg:text-8xl text-primary text-center mb-8 z-10 drop-shadow-2xl"
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        I love you Ranoummm ❤️
+        Please Come Back to Me, Ranoummm 😭❤️
       </motion.h2>
 
       <motion.p
-        className="text-lg text-muted-foreground text-center mb-10 z-10"
+        className="text-xl md:text-2xl text-muted-foreground text-center mb-12 z-10 italic max-w-md"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.5 }}
       >
-        Forever and always 💕
+        I'm still here, waiting for another chance to prove my love. 🥀
       </motion.p>
 
       <motion.button
         onClick={onReplay}
-        className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-semibold shadow-lg z-10"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-5 rounded-full text-xl font-bold shadow-2xl z-10 border-2 border-white/10"
+        whileHover={{ scale: 1.1, boxShadow: "0 0 30px rgba(185, 28, 28, 0.5)" }}
+        whileTap={{ scale: 0.9 }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.8 }}
       >
-        Replay our story 🔄
+        I'll wait for you... 🕯️
       </motion.button>
     </section>
   );
