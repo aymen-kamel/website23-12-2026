@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import { Mail, Heart } from "lucide-react";
 
 const messages = [
-  "I'm so sorry for everything. I never meant to hurt the person I love most. 💔",
-  "I miss your smile every single second of the day. Please forgive me. 😔",
-  "I was stupid, and I hate myself for what I did to us. I want to fix this. ❤️‍🩹",
-  "You are the best thing that ever happened to me, and I threw it away. I'm so sorry. 🥀",
-  "I promise to spend every day making it up to you if you give me one more chance. 🕯️",
-  "My life feels empty without you. I'm truly sorry, Ranoummm. 🖤",
-  "I've learned my lesson the hardest way possible. I need you back. 🙏",
+  "Happy Birthday, my love! You make every day feel like a celebration. 🎂❤️",
+  "I'm so grateful we're back together. You are my everything. 🥰✨",
+  "I promise to love you more and more every single day. Happy Birthday! 💖",
+  "You're not just my girlfriend, you're my best friend. I love you, Ranoummm! 🌹",
+  "May this birthday be as beautiful and special as you are to me. 🎈✨",
+  "I'm the luckiest man to have you by my side again. Happy Birthday! 🎂❤️",
+  "Here's to many more birthdays and beautiful memories together. I love you! ✨💖",
 ];
 
 const DailyMessageSection = () => {
@@ -31,10 +31,10 @@ const DailyMessageSection = () => {
         viewport={{ once: true }}
       >
         <h2 className="font-romantic text-4xl md:text-5xl text-primary mb-2">
-          A Message from My Heart 🥀
+          Daily Dose of Love 💌
         </h2>
         <p className="text-muted-foreground italic">
-          Click the envelope to see my apology for today...
+          Click the envelope for your birthday message...
         </p>
       </motion.div>
 
@@ -69,7 +69,7 @@ const DailyMessageSection = () => {
                 animate={{ rotate: [0, 5, -5, 0] }}
                 transition={{ repeat: Infinity, duration: 3 }}
               >
-                <span className="text-5xl drop-shadow-md">🥀</span>
+                <span className="text-5xl drop-shadow-md">💖</span>
               </motion.div>
               
               <p className="font-romantic text-3xl text-primary mb-6 leading-relaxed">

@@ -9,6 +9,7 @@ import BucketListSection from "@/components/BucketListSection";
 import DailyMessageSection from "@/components/DailyMessageSection";
 import LoveMessageSection from "@/components/LoveMessageSection";
 import FinalSection from "@/components/FinalSection";
+import BirthdaySurprise from "@/components/BirthdaySurprise";
 
 const Index = () => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -23,6 +24,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <BirthdaySurprise />
       <HeroSection onStart={scrollToContent} />
       <div ref={contentRef}>
         <LoveQuestionSection />

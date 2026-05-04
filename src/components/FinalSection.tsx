@@ -14,7 +14,7 @@ const FinalSection = ({ onReplay }: FinalSectionProps) => {
         delay: Math.random() * 7,
         duration: 5 + Math.random() * 5,
         size: 14 + Math.random() * 20,
-        emoji: Math.random() > 0.5 ? "💔" : "🕯️",
+        emoji: ["❤️", "🎂", "🎉", "🎈", "💖"][Math.floor(Math.random() * 5)],
       })),
     []
   );
@@ -50,7 +50,7 @@ const FinalSection = ({ onReplay }: FinalSectionProps) => {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        Please Come Back to Me, Ranoummm 😭❤️
+        Happy Birthday to the Love of my Life, Ranoummm! 🎂❤️
       </motion.h2>
 
       <motion.p
@@ -60,7 +60,7 @@ const FinalSection = ({ onReplay }: FinalSectionProps) => {
         viewport={{ once: true }}
         transition={{ delay: 0.5 }}
       >
-        I'm still here, waiting for another chance to prove my love. 🥀
+        You are my forever, and I'm so happy we are together today. I love you! ✨💖
       </motion.p>
 
       <motion.button
@@ -73,7 +73,7 @@ const FinalSection = ({ onReplay }: FinalSectionProps) => {
         viewport={{ once: true }}
         transition={{ delay: 0.8 }}
       >
-        I'll wait for you... 🕯️
+        I Love You Forever! ❤️✨
       </motion.button>
     </section>
   );

@@ -2,14 +2,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 const reasons = [
-  "Because I risked everything for a momentary mistake. 🤡",
-  "Because I hurt the most beautiful soul I've ever known. 💔",
-  "Because I forgot that you are my entire world. 🌎",
-  "Because I thought I could live without you, and I was so wrong. 😔",
-  "Because I broke a promise I meant to keep forever. 🥀",
-  "Because I'm a fool who doesn't deserve you, but wants to. 🙏",
-  "Because I let my ego get in the way of our happiness. 🤦‍♂️",
-  "Because I took your love for granted. Never again. 🕯️",
+  "Because your smile lights up my whole world. ✨",
+  "Because you have the kindest heart I've ever known. ❤️",
+  "Because you're my best friend and my soulmate. 👩‍❤️‍👨",
+  "Because you always know how to make me laugh. 😂",
+  "Because you're incredibly beautiful, inside and out. 😍",
+  "Because you never gave up on us. Thank you. 🙏❤️",
+  "Because you're the smartest person I know. 🧠✨",
+  "Because I can't imagine my life without you. 🌍❤️",
 ];
 
 const FunnyGeneratorSection = () => {
@@ -33,7 +33,7 @@ const FunnyGeneratorSection = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        Reasons I'm an Idiot... 🤡
+        Reasons Why I Love You... ❤️
       </motion.h2>
 
       <motion.button
@@ -42,7 +42,7 @@ const FunnyGeneratorSection = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        Tell me more 🥀
+        Tell me more ❤️
       </motion.button>
 
       <div className="h-20 flex items-center justify-center">

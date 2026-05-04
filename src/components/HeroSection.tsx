@@ -12,14 +12,23 @@ const FloatingHeart = ({ delay, left, size }: { delay: number; left: string; siz
     animate={{ y: [0, -40, 0], rotate: [0, 15, -15, 0] }}
     transition={{ duration: 5, repeat: Infinity, delay }}
   >
-    💔
+    {delay % 2 === 0 ? "❤️" : "🎂"}
   </motion.span>
 );
 
 const HeroSection = ({ onStart }: HeroSectionProps) => {
-  const startDate = new Date("2024-10-26T00:00:00"); // Original start date
+  const startDate = new Date("2026-05-04T00:00:00"); // Date you reunited!
+  const birthdayDate = new Date("2026-05-05T00:00:00");
+  
   const [timeTogether, setTimeTogether] = useState({
     days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  const [isBirthday, setIsBirthday] = useState(false);
+  const [countdown, setCountdown] = useState({
     hours: 0,
     minutes: 0,
     seconds: 0,
@@ -28,14 +37,28 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date();
+      
+      // Time together calculation
       const diff = now.getTime() - startDate.getTime();
+      setTimeTogether({
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((diff % (1000 * 60)) / 1000),
+      });
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      setTimeTogether({ days, hours, minutes, seconds });
+      // Birthday countdown calculation
+      if (now < birthdayDate) {
+        setIsBirthday(false);
+        const bDiff = birthdayDate.getTime() - now.getTime();
+        setCountdown({
+          hours: Math.floor(bDiff / (1000 * 60 * 60)),
+          minutes: Math.floor((bDiff % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((bDiff % (1000 * 60)) / 1000),
+        });
+      } else {
+        setIsBirthday(true);
+      }
     }, 1000);
 
     return () => clearInterval(timer);
@@ -57,28 +80,49 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
         transition={{ duration: 0.8 }}
       >
         <p className="text-sm font-semibold text-primary uppercase tracking-[0.2em] text-center mb-2">
-          Time since my biggest mistake
+          {isBirthday ? "Time since we reunited" : "Countdown to your Birthday 🕛"}
         </p>
         <div className="flex gap-4 justify-center font-mono text-2xl font-bold text-foreground">
-          <div className="flex flex-col items-center leading-none">
-            <span>{timeTogether.days}</span>
-            <span className="text-[10px] uppercase font-sans mt-1">Days</span>
-          </div>
-          <span className="opacity-50">:</span>
-          <div className="flex flex-col items-center leading-none">
-            <span>{timeTogether.hours}</span>
-            <span className="text-[10px] uppercase font-sans mt-1">Hrs</span>
-          </div>
-          <span className="opacity-50">:</span>
-          <div className="flex flex-col items-center leading-none">
-            <span>{timeTogether.minutes}</span>
-            <span className="text-[10px] uppercase font-sans mt-1">Min</span>
-          </div>
-          <span className="opacity-50">:</span>
-          <div className="flex flex-col items-center leading-none text-primary">
-            <span>{timeTogether.seconds}</span>
-            <span className="text-[10px] uppercase font-sans mt-1">Sec</span>
-          </div>
+          {!isBirthday ? (
+            <>
+              <div className="flex flex-col items-center leading-none">
+                <span>{countdown.hours}</span>
+                <span className="text-[10px] uppercase font-sans mt-1">Hrs</span>
+              </div>
+              <span className="opacity-50">:</span>
+              <div className="flex flex-col items-center leading-none">
+                <span>{countdown.minutes}</span>
+                <span className="text-[10px] uppercase font-sans mt-1">Min</span>
+              </div>
+              <span className="opacity-50">:</span>
+              <div className="flex flex-col items-center leading-none text-primary">
+                <span>{countdown.seconds}</span>
+                <span className="text-[10px] uppercase font-sans mt-1">Sec</span>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="flex flex-col items-center leading-none">
+                <span>{timeTogether.days}</span>
+                <span className="text-[10px] uppercase font-sans mt-1">Days</span>
+              </div>
+              <span className="opacity-50">:</span>
+              <div className="flex flex-col items-center leading-none">
+                <span>{timeTogether.hours}</span>
+                <span className="text-[10px] uppercase font-sans mt-1">Hrs</span>
+              </div>
+              <span className="opacity-50">:</span>
+              <div className="flex flex-col items-center leading-none">
+                <span>{timeTogether.minutes}</span>
+                <span className="text-[10px] uppercase font-sans mt-1">Min</span>
+              </div>
+              <span className="opacity-50">:</span>
+              <div className="flex flex-col items-center leading-none text-primary">
+                <span>{timeTogether.seconds}</span>
+                <span className="text-[10px] uppercase font-sans mt-1">Sec</span>
+              </div>
+            </>
+          )}
         </div>
       </motion.div>
 
@@ -88,7 +132,7 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        I'm so sorry, Ranoummm... 💔
+        Happy Birthday & Welcome Back, Ranoummm! ❤️🎉
       </motion.h1>
 
       <motion.p
@@ -97,7 +141,7 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        I know I messed up. I know I hurt you. But I want you to know how much I regret it and how much I want you back.
+        Today is the most special day because it's your birthday, and we are finally back together. I love you more than words can say.
       </motion.p>
 
       <motion.button
@@ -109,7 +153,7 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
         whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(185, 28, 28, 0.4)" }}
         whileTap={{ scale: 0.95 }}
       >
-        Please hear me out... 🕯️
+        Let's Celebrate! 🎁
       </motion.button>
     </section>
   );

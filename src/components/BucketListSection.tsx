@@ -8,7 +8,7 @@ const initialItems = [
   { id: 3, icon: "🧺", text: "Have that picnic we always talked about", completed: false, rot: -4 },
   { id: 4, icon: "👩‍🍳", text: "Cook a 3-course dinner for you", completed: false, rot: 2 },
   { id: 5, icon: "🚗", text: "Go on a road trip just to talk", completed: false, rot: -3 },
-  { id: 6, icon: "💍", text: "Fix this and never let go again", completed: false, rot: 4 },
+  { id: 6, icon: "💍", text: "Grow old together and never let go", completed: false, rot: 4 },
 ];
 
 const BucketListSection = () => {
@@ -39,10 +39,10 @@ const BucketListSection = () => {
         viewport={{ once: true }}
       >
         <h2 className="font-romantic text-4xl md:text-6xl text-primary mb-4 drop-shadow-sm">
-          Things I Hope We Can Still Do... 🕯️
+          Things We WILL Do Together... ❤️
         </h2>
         <p className="text-muted-foreground italic text-lg max-w-md mx-auto">
-          These were our dreams. I'm still holding on to them...
+          Our future is so bright. I can't wait to check all of these off with you!
         </p>
       </motion.div>
 
@@ -73,7 +73,7 @@ const BucketListSection = () => {
                 className="absolute inset-0 bg-card shadow-2xl rounded-3xl p-6 flex flex-col items-center justify-center text-center border border-white/5 backdrop-blur-md"
                 style={{ backfaceVisibility: "hidden" }}
               >
-                <div className="text-6xl mb-4 bg-primary/5 p-4 rounded-full shadow-inner grayscale opacity-60">
+                <div className="text-6xl mb-4 bg-primary/5 p-4 rounded-full shadow-inner opacity-90">
                   {item.icon}
                 </div>
                 <p className="text-lg font-medium text-foreground leading-tight">
@@ -107,7 +107,7 @@ const BucketListSection = () => {
                 >
                   <Heart className="w-10 h-10 text-primary fill-primary" />
                 </motion.div>
-                <h3 className="font-romantic text-3xl text-primary mb-2 italic">I still hope for this...</h3>
+                <h3 className="font-romantic text-3xl text-primary mb-2 italic">I'm so excited for this!</h3>
                 <p className="text-sm font-semibold text-foreground/80">{item.text}</p>
               </div>
             </motion.div>

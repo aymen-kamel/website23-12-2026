@@ -19,11 +19,11 @@ const MemoriesSection = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        Moments I Miss Every Day 📸
+        Moments I Cherish 📸
       </motion.h2>
       
       <p className="text-muted-foreground text-center max-w-md mb-16 italic">
-        I look at these photos and videos every night, wishing I could go back and be the man you deserve.
+        Looking at these memories makes me so happy we're together again. Can't wait to make a million more with you.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full">
@@ -42,14 +42,14 @@ const MemoriesSection = () => {
                 <img
                   src={mem.src}
                   alt={mem.caption}
-                  className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0 ${mem.className || ""}`}
+                  className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${mem.className || ""}`}
                 />
               )}
               {mem.type === "video" && (
                 <video
                   src={mem.src}
                   controls
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all"
+                  className="w-full h-full object-cover transition-all"
                   poster="/placeholder.svg"
                 />
               )}

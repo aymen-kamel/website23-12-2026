@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const lines = [
-  "I know I messed up in the worst way possible.",
-  "I broke your trust, and I broke our beautiful story.",
-  "There is no excuse for what I did...",
-  "but I want you to know that I am suffering without you.",
-  "You are the only one I ever truly wanted.",
-  "Please, if there is even a tiny piece of love left...",
-  "let me prove to you that I can be the man you deserve. ❤️‍🩹",
+  "Happy Birthday, my beautiful Ranoummm! 🎂",
+  "Today is all about you, and I'm so happy I get to spend it with you.",
+  "You are the most amazing person I've ever met...",
+  "and having you back in my life is the best birthday gift I could ever ask for.",
+  "I promise to cherish you, respect you, and love you forever.",
+  "You deserve the world, and I'll spend my life trying to give it to you.",
+  "Happy Birthday, my love! ❤️🎉",
 ];
 
 const LoveMessageSection = () => {
@@ -31,7 +31,7 @@ const LoveMessageSection = () => {
         viewport={{ once: true }}
         onViewportEnter={() => setStarted(true)}
       >
-        A Sincere Apology 🕯️
+        A Special Birthday Message 🎂✨
       </motion.h2>
 
       <div className="max-w-lg space-y-6 text-center">

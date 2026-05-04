@@ -7,55 +7,55 @@
 
 @layer base {
   :root {
-    --background: 240 10% 4%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 4%;
 
-    --card: 240 10% 7%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 98%;
+    --card-foreground: 240 10% 4%;
 
-    --popover: 240 10% 4%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 4%;
 
-    --primary: 0 70% 40%;
+    --primary: 340 82% 52%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 5% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 350 100% 96%;
+    --secondary-foreground: 340 82% 52%;
 
-    --muted: 240 5% 15%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 5% 45%;
 
-    --accent: 0 50% 30%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 340 82% 92%;
+    --accent-foreground: 340 82% 52%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5% 20%;
-    --input: 240 5% 20%;
-    --ring: 0 70% 40%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 340 82% 52%;
 
-    --radius: 1rem;
+    --radius: 1.5rem;
 
-    --romantic: 0 60% 35%;
-    --romantic-light: 0 40% 20%;
-    --romantic-dark: 0 80% 25%;
-    --love: 0 50% 30%;
-    --blush: 0 20% 15%;
-    --cream: 240 5% 10%;
-    --gold: 40 40% 40%;
+    --romantic: 340 82% 52%;
+    --romantic-light: 340 82% 72%;
+    --romantic-dark: 340 82% 42%;
+    --love: 350 100% 60%;
+    --blush: 350 100% 90%;
+    --cream: 30 100% 98%;
+    --gold: 45 100% 50%;
 
     --font-heading: 'Dancing Script', cursive;
     --font-body: 'Inter', sans-serif;
 
-    --sidebar-background: 240 10% 4%;
-    --sidebar-foreground: 240 5% 65%;
-    --sidebar-primary: 0 70% 40%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5% 45%;
+    --sidebar-primary: 340 82% 52%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 5% 15%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 5% 20%;
-    --sidebar-ring: 0 70% 40%;
+    --sidebar-accent: 340 82% 92%;
+    --sidebar-accent-foreground: 340 82% 52%;
+    --sidebar-border: 240 6% 90%;
+    --sidebar-ring: 340 82% 52%;
   }
 }
 

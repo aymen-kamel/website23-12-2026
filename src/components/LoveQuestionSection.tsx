@@ -21,7 +21,7 @@ const LoveQuestionSection = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        Ranoummm… can you ever forgive me? 🕯️
+        Ranoummm… are you ready for your birthday surprise? 🎁
       </motion.h2>
 
       {!answered ? (
@@ -33,7 +33,7 @@ const LoveQuestionSection = () => {
             whileTap={{ scale: yesScale * 0.95 }}
             onClick={() => setAnswered(true)}
           >
-            I FORGIVE YOU ❤️
+            YES! 💖
           </motion.button>
 
           <motion.button
@@ -43,7 +43,7 @@ const LoveQuestionSection = () => {
             onMouseEnter={moveNo}
             onTouchStart={moveNo}
           >
-            NEVER 🥀
+            MAYBE... 🤔
           </motion.button>
         </div>
       ) : (
@@ -54,10 +54,10 @@ const LoveQuestionSection = () => {
           transition={{ type: "spring", stiffness: 200 }}
         >
           <p className="text-2xl md:text-3xl font-semibold text-foreground">
-            Thank you for being so big-hearted... 😭❤️
+            Yay! Get ready for the best birthday ever... 🎂✨
           </p>
           <p className="text-xl text-muted-foreground mt-4 italic">
-            I promise I will never let you down again.
+            I'm so glad you're mine.
           </p>
         </motion.div>
       )}

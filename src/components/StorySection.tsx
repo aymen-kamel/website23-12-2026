@@ -2,11 +2,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const chatMessages = [
-  { sender: "him", text: "Everything started so perfectly that night of El Clásico... ⚽", delay: 1000 },
-  { sender: "her", text: "It really did. I thought we were forever. ❤️", delay: 2500 },
-  { sender: "him", text: "But then I did the unthinkable. I betrayed your trust. 💔", delay: 4000 },
-  { sender: "her", text: "I can't believe you did that to us... 😔", delay: 5500 },
-  { sender: "him", text: "I'm a fool, and I'd give anything to go back and change it.", delay: 7000 },
+  { sender: "him", text: "I'm so happy we found our way back to each other. ❤️", delay: 1000 },
+  { sender: "her", text: "Me too. I missed you more than I can say. 🥰", delay: 2500 },
+  { sender: "him", text: "And guess what? It's finally midnight... 🕛", delay: 4000 },
+  { sender: "her", text: "Is it May 5th already? 🎈", delay: 5500 },
+  { sender: "him", text: "Yes! Happy Birthday, my beautiful Ranoummm! 🎂💖", delay: 7000 },
 ];
 
 const StorySection = () => {
@@ -33,9 +33,9 @@ const StorySection = () => {
         className="text-center mb-16"
       >
         <h2 className="font-romantic text-4xl md:text-6xl text-primary mb-4">
-          How I Ruined Our Story...
+          Our Story Continues... ❤️
         </h2>
-        <p className="text-muted-foreground italic">My biggest regret began where our best memories were made.</p>
+        <p className="text-muted-foreground italic">The best chapters are the ones we're writing right now.</p>
       </motion.div>
 
       <div className="max-w-md w-full relative bg-card/40 backdrop-blur-xl rounded-[2rem] p-8 shadow-2xl border border-white/10 min-h-[450px] flex flex-col">
@@ -84,7 +84,7 @@ const StorySection = () => {
             className="mt-8 pt-6 border-t border-dashed border-primary/20 text-center"
           >
             <p className="font-romantic text-2xl text-primary animate-pulse italic">
-              I'm fighting to win you back, because you're worth it. 🕯️
+              I'm so lucky to have you. Happy Birthday, my love! 🎂✨
             </p>
           </motion.div>
         )}
