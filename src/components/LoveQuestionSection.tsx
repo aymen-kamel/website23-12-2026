@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useCallback } from "react";
+import { Sparkles } from "lucide-react";
 
 const LoveQuestionSection = () => {
   const [noPos, setNoPos] = useState({ x: 0, y: 0 });
@@ -7,60 +8,112 @@ const LoveQuestionSection = () => {
   const [answered, setAnswered] = useState(false);
 
   const moveNo = useCallback(() => {
-    const x = (Math.random() - 0.5) * 300;
-    const y = (Math.random() - 0.5) * 200;
+    const x = (Math.random() - 0.5) * 320;
+    const y = (Math.random() - 0.5) * 220;
     setNoPos({ x, y });
     setYesScale((s) => Math.min(s + 0.2, 3));
   }, []);
 
   return (
-    <section className="min-h-[70vh] flex flex-col items-center justify-center px-4 py-20 bg-background">
+    <section
+      id="love-question"
+      className="min-h-[75vh] flex flex-col items-center justify-center px-4 py-24 section-alt relative overflow-hidden"
+    >
+      {/* Background orb */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[120px]" />
+      </div>
+
+      {/* Section label */}
+      <motion.div
+        className="flex items-center gap-2 mb-6"
+        initial={{ opacity: 0, y: -10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        <Sparkles className="w-4 h-4 text-gold" />
+        <span className="text-xs uppercase tracking-[0.3em] text-gold font-semibold">A question for you</span>
+        <Sparkles className="w-4 h-4 text-gold" />
+      </motion.div>
+
       <motion.h2
-        className="font-romantic text-4xl md:text-5xl text-primary text-center mb-12"
+        className="font-display text-3xl md:text-5xl text-foreground text-center mb-4 max-w-2xl"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        Ranoummm… are you ready for your{" "}
+        <span className="text-gradient-love italic">birthday surprise?</span> 🎁
+      </motion.h2>
+
+      <motion.p
+        className="text-muted-foreground text-center mb-14 italic font-display"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
       >
-        Ranoummm… are you ready for your birthday surprise? 🎁
-      </motion.h2>
+        There's only one right answer here...
+      </motion.p>
 
-      {!answered ? (
-        <div className="relative flex gap-8 items-center justify-center min-h-[150px]">
-          <motion.button
-            className="bg-primary text-primary-foreground px-10 py-5 rounded-full font-bold shadow-2xl z-10 border-2 border-white/10"
-            animate={{ scale: yesScale }}
-            whileHover={{ scale: yesScale * 1.05 }}
-            whileTap={{ scale: yesScale * 0.95 }}
-            onClick={() => setAnswered(true)}
+      <AnimatePresence mode="wait">
+        {!answered ? (
+          <motion.div
+            key="buttons"
+            className="relative flex gap-8 items-center justify-center min-h-[160px]"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
           >
-            YES! 💖
-          </motion.button>
+            {/* YES button */}
+            <motion.button
+              id="love-question-yes"
+              className="relative btn-primary text-xl font-bold px-12 py-6 z-10"
+              animate={{ scale: yesScale }}
+              whileHover={{ scale: yesScale * 1.06 }}
+              whileTap={{ scale: yesScale * 0.95 }}
+              onClick={() => setAnswered(true)}
+            >
+              YES! 💖
+            </motion.button>
 
-          <motion.button
-            className="bg-secondary text-muted-foreground px-8 py-4 rounded-full font-semibold shadow-md border border-white/5"
-            animate={{ x: noPos.x, y: noPos.y }}
-            transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            onMouseEnter={moveNo}
-            onTouchStart={moveNo}
+            {/* MAYBE button */}
+            <motion.button
+              id="love-question-no"
+              className="btn-ghost text-base px-7 py-4 text-muted-foreground border-muted-foreground/20"
+              animate={{ x: noPos.x, y: noPos.y }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              onMouseEnter={moveNo}
+              onTouchStart={moveNo}
+            >
+              MAYBE... 🤔
+            </motion.button>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="success"
+            className="text-center glass-card rounded-3xl p-10 max-w-md"
+            initial={{ opacity: 0, scale: 0.6, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 200, damping: 18 }}
           >
-            MAYBE... 🤔
-          </motion.button>
-        </div>
-      ) : (
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ type: "spring", stiffness: 200 }}
-        >
-          <p className="text-2xl md:text-3xl font-semibold text-foreground">
-            Yay! Get ready for the best birthday ever... 🎂✨
-          </p>
-          <p className="text-xl text-muted-foreground mt-4 italic">
-            I'm so glad you're mine.
-          </p>
-        </motion.div>
-      )}
+            <motion.div
+              className="text-6xl mb-4"
+              animate={{ scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 0.8, repeat: 3 }}
+            >
+              🎂
+            </motion.div>
+            <p className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-3">
+              Yay! Get ready for the{" "}
+              <span className="text-gradient-love italic">best birthday ever</span>... ✨
+            </p>
+            <p className="text-muted-foreground italic font-display">
+              I'm so glad you're mine.
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

@@ -10,6 +10,8 @@ import DailyMessageSection from "@/components/DailyMessageSection";
 import LoveMessageSection from "@/components/LoveMessageSection";
 import FinalSection from "@/components/FinalSection";
 import BirthdaySurprise from "@/components/BirthdaySurprise";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -23,9 +25,17 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
+      {/* Birthday modal overlay */}
       <BirthdaySurprise />
+
+      {/* Floating navigation */}
+      <Navbar />
+
+      {/* Hero */}
       <HeroSection onStart={scrollToContent} />
+
+      {/* All sections */}
       <div ref={contentRef}>
         <LoveQuestionSection />
         <StorySection />
@@ -37,6 +47,9 @@ const Index = () => {
         <LoveMessageSection />
         <FinalSection onReplay={scrollToTop} />
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
