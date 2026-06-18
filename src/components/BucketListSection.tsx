@@ -94,8 +94,8 @@ const BucketListSection = () => {
         {items.map((item, i) => (
           <motion.div
             key={item.id}
-            className="relative h-56 cursor-pointer"
-            style={{ perspective: 1200 }}
+            className="relative h-64 cursor-pointer"
+            style={{ perspective: 1200, touchAction: "manipulation" }}
             initial={{ opacity: 0, scale: 0.85, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}

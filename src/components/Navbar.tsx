@@ -1,108 +1,114 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 
 const navItems = [
-  { emoji: "🏠", label: "Home", href: "#hero" },
-  { emoji: "💬", label: "Our Story", href: "#story" },
-  { emoji: "📸", label: "Memories", href: "#memories" },
-  { emoji: "🗺️", label: "Bucket List", href: "#bucket-list" },
-  { emoji: "💌", label: "Love Letter", href: "#love-letter" },
+  { emoji: "🏠", label: "Home", href: "hero" },
+  { emoji: "💬", label: "Story", href: "story" },
+  { emoji: "📸", label: "Memories", href: "memories" },
+  { emoji: "🗺️", label: "Plans", href: "bucket-list" },
+  { emoji: "💌", label: "Letter", href: "love-letter" },
 ];
 
 const Navbar = () => {
-  const [visible, setVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+  const [activeHref, setActiveHref] = useState("hero");
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentY = window.scrollY;
-      setScrolled(currentY > 60);
-      if (currentY < 80) {
-        setVisible(true);
-      } else if (currentY > lastScrollY + 10) {
-        setVisible(false);
-      } else if (currentY < lastScrollY - 10) {
-        setVisible(true);
-      }
-      setLastScrollY(currentY);
-    };
+      setScrolled(window.scrollY > 40);
 
+      // Highlight active section
+      for (const item of [...navItems].reverse()) {
+        const el = document.getElementById(item.href);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 120) {
+            setActiveHref(item.href);
+            break;
+          }
+        }
+      }
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
-  const handleNavClick = (href: string) => {
-    const id = href.replace("#", "");
+  const handleNavClick = (id: string) => {
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.nav
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -100, opacity: 0 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="fixed top-4 left-1/2 -translate-x-1/2 z-50"
-          role="navigation"
-          aria-label="Main navigation"
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+      className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-3 pb-2 px-3"
+      style={{
+        background: scrolled
+          ? "linear-gradient(to bottom, rgba(10,6,20,0.95) 70%, transparent)"
+          : "linear-gradient(to bottom, rgba(10,6,20,0.6) 60%, transparent)",
+        backdropFilter: scrolled ? "blur(16px)" : "blur(8px)",
+        WebkitBackdropFilter: scrolled ? "blur(16px)" : "blur(8px)",
+      }}
+      role="navigation"
+      aria-label="Main navigation"
+    >
+      <div className="flex items-center justify-between w-full max-w-sm">
+        {/* Logo / brand */}
+        <button
+          onClick={() => handleNavClick("hero")}
+          className="flex items-center gap-1.5 px-2 py-1 rounded-full touch-manipulation"
+          style={{ minHeight: 44 }}
+          aria-label="Go to top"
         >
-          <div
-            className={`flex items-center gap-1 px-3 py-2 rounded-full transition-all duration-300 ${
-              scrolled
-                ? "glass-strong shadow-glass"
-                : "glass shadow-glass"
-            }`}
+          <motion.div
+            animate={{ scale: [1, 1.25, 1] }}
+            transition={{ duration: 1.6, repeat: Infinity, repeatDelay: 1.5 }}
           >
-            {/* Logo */}
-            <motion.div
-              className="flex items-center gap-1.5 px-3 py-1.5 mr-1"
-              whileHover={{ scale: 1.05 }}
-            >
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
-              >
-                <Heart className="w-4 h-4 fill-primary text-primary" />
-              </motion.div>
-              <span className="font-script text-lg text-primary leading-none">R</span>
-            </motion.div>
+            <Heart className="w-4 h-4 fill-primary text-primary" />
+          </motion.div>
+          <span className="font-script text-xl text-primary leading-none">Ranoummm</span>
+        </button>
 
-            {/* Divider */}
-            <div className="w-px h-5 bg-white/10 mx-1" />
-
-            {/* Nav Items */}
-            {navItems.map((item) => (
-              <motion.button
+        {/* Nav buttons — emoji icons only, always visible */}
+        <div className="flex items-center gap-1">
+          {navItems.map((item) => {
+            const isActive = activeHref === item.href;
+            return (
+              <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="relative flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 aria-label={item.label}
                 title={item.label}
+                className="relative flex items-center justify-center rounded-full transition-all duration-200 touch-manipulation"
+                style={{
+                  width: 44,
+                  height: 44,
+                  background: isActive
+                    ? "hsl(340 80% 65% / 0.18)"
+                    : "transparent",
+                  border: isActive
+                    ? "1px solid hsl(340 80% 65% / 0.35)"
+                    : "1px solid transparent",
+                }}
               >
-                <span className="text-base">{item.emoji}</span>
-                <span className="hidden sm:block text-xs font-medium">{item.label}</span>
-                {/* Hover glow */}
-                <motion.div
-                  className="absolute inset-0 rounded-full bg-primary/10"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                />
-              </motion.button>
-            ))}
-          </div>
-        </motion.nav>
-      )}
-    </AnimatePresence>
+                <span className="text-xl leading-none">{item.emoji}</span>
+                {/* Active dot */}
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-dot"
+                    className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary"
+                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  />
+                )}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </motion.nav>
   );
 };
 

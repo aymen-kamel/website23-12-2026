@@ -80,11 +80,12 @@ const MemoriesSection = () => {
         {memories.map((mem, i) => (
           <motion.div
             key={i}
-            className="group relative rounded-3xl overflow-hidden shadow-glass cursor-pointer"
+            className={`group relative rounded-3xl overflow-hidden shadow-glass cursor-pointer ${
+              mem.size === "wide" ? "md:col-span-2" : ""
+            }`}
             style={{
               background: "hsl(258, 25%, 10%)",
               border: "1px solid rgba(255,255,255,0.07)",
-              gridColumn: mem.size === "wide" ? "span 2" : undefined,
             }}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +96,7 @@ const MemoriesSection = () => {
             {/* Media */}
             <div
               className="w-full overflow-hidden flex items-center justify-center bg-black/20 relative"
-              style={{ aspectRatio: mem.size === "wide" ? "16/9" : "4/5" }}
+              style={{ aspectRatio: mem.size === "wide" ? "16/9" : "4/5", minHeight: mem.type === "video" ? 220 : undefined }}
             >
               {mem.type === "image" && (
                 <img
@@ -109,8 +110,11 @@ const MemoriesSection = () => {
                 <video
                   src={mem.src}
                   controls
+                  playsInline
+                  muted
+                  preload="metadata"
                   className="w-full h-full object-cover"
-                  poster="/placeholder.svg"
+                  style={{ minHeight: 200 }}
                 />
               )}
 

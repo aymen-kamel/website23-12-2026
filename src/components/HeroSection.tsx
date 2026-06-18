@@ -79,7 +79,7 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 pt-20"
       style={{
         background: "radial-gradient(ellipse 80% 60% at 50% 0%, hsl(330 60% 15% / 0.8) 0%, transparent 70%), radial-gradient(ellipse 60% 80% at 80% 50%, hsl(280 40% 12% / 0.6) 0%, transparent 70%), hsl(256, 28%, 7%)",
       }}
@@ -101,7 +101,7 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
 
       {/* Timer / Countdown widget */}
       <motion.div
-        className="relative mb-10 glass-strong px-7 py-4 rounded-2xl shimmer-border"
+        className="relative mb-8 glass-strong px-5 py-3 rounded-2xl shimmer-border w-full max-w-xs mx-auto"
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
@@ -141,7 +141,7 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
         <p className="font-display text-sm md:text-base uppercase tracking-[0.35em] text-primary/70 mb-3 font-medium">
           You Were Always Mine
         </p>
-        <h1 className="font-script text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-gradient-love leading-none mb-2">
+        <h1 className="font-script text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-gradient-love leading-none mb-2 px-2">
           Ranoummm
         </h1>
         <div className="flex items-center justify-center gap-3 mt-2">
@@ -163,7 +163,7 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
 
       {/* CTA Buttons */}
       <motion.div
-        className="flex flex-col sm:flex-row items-center gap-4 relative z-10"
+        className="flex flex-col w-full max-w-xs sm:max-w-none sm:flex-row items-center gap-3 relative z-10 px-4 sm:px-0"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.8 }}
@@ -171,7 +171,7 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
         <motion.button
           id="hero-start-btn"
           onClick={onStart}
-          className="btn-primary text-lg px-10 py-5 font-bold"
+          className="btn-primary text-base px-8 py-4 font-bold w-full sm:w-auto text-center"
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.96 }}
         >
@@ -180,7 +180,7 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
 
         <motion.button
           onClick={onStart}
-          className="btn-ghost text-base px-8 py-4"
+          className="btn-ghost text-base px-8 py-4 w-full sm:w-auto text-center"
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.96 }}
         >

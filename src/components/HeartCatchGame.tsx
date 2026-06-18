@@ -120,7 +120,7 @@ const HeartCatchGame = () => {
 
       {/* Game Area */}
       {playing && (
-        <div className="relative z-10 w-full max-w-sm flex flex-col items-center gap-4">
+        <div className="relative z-10 w-full max-w-sm flex flex-col items-center gap-4 px-1">
           {/* Score bar */}
           <div className="flex items-center justify-between w-full px-1">
             <div className="flex items-center gap-2">
@@ -145,9 +145,9 @@ const HeartCatchGame = () => {
             </div>
           </div>
 
-          {/* Game box */}
+          {/* Game box — taller on mobile for easier tapping */}
           <div
-            className="relative w-full h-80 rounded-3xl overflow-hidden shadow-glass"
+            className="relative w-full h-96 rounded-3xl overflow-hidden shadow-glass"
             style={{
               background: "linear-gradient(160deg, hsl(258, 25%, 10%) 0%, hsl(280, 20%, 8%) 100%)",
               border: "1px solid rgba(255,255,255,0.08)",
@@ -172,14 +172,15 @@ const HeartCatchGame = () => {
               {hearts.map((heart) => (
                 <motion.button
                   key={heart.id}
-                  className="absolute text-2xl cursor-pointer select-none hover:scale-125 transition-transform"
-                  style={{ left: `${heart.x}%` }}
-                  initial={{ top: "-8%", opacity: 0 }}
+                  className="absolute flex items-center justify-center text-4xl cursor-pointer select-none"
+                  style={{ left: `${heart.x}%`, width: 52, height: 52, marginLeft: -26, touchAction: "manipulation" }}
+                  initial={{ top: "-10%", opacity: 0 }}
                   animate={{ top: "108%", opacity: 1 }}
                   exit={{ opacity: 0, scale: 0 }}
                   transition={{ duration: heart.duration, ease: "linear" }}
                   onAnimationComplete={() => removeHeart(heart.id)}
                   onClick={() => catchHeart(heart.id)}
+                  onTouchStart={() => catchHeart(heart.id)}
                   aria-label="Catch heart"
                 >
                   {heart.emoji}
