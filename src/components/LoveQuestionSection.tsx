@@ -32,7 +32,7 @@ const LoveQuestionSection = () => {
         viewport={{ once: true }}
       >
         <Sparkles className="w-4 h-4 text-gold" />
-        <span className="text-xs uppercase tracking-[0.3em] text-gold font-semibold">A question for you</span>
+        <span className="text-xs uppercase tracking-[0.3em] text-gold font-semibold">The truth, always</span>
         <Sparkles className="w-4 h-4 text-gold" />
       </motion.div>
 
@@ -42,8 +42,8 @@ const LoveQuestionSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        Ranoummm… are you ready for your{" "}
-        <span className="text-gradient-love italic">birthday surprise?</span> 🎁
+        Ranoummm… did you know you were{" "}
+        <span className="text-gradient-love italic">always mine?</span> 💖
       </motion.h2>
 
       <motion.p
@@ -53,7 +53,7 @@ const LoveQuestionSection = () => {
         viewport={{ once: true }}
         transition={{ delay: 0.2 }}
       >
-        There's only one right answer here...
+        Because the universe decided it long before we did...
       </motion.p>
 
       <AnimatePresence mode="wait">
@@ -74,7 +74,7 @@ const LoveQuestionSection = () => {
               whileTap={{ scale: yesScale * 0.95 }}
               onClick={() => setAnswered(true)}
             >
-              YES! 💖
+              Always! 💖
             </motion.button>
 
             {/* MAYBE button */}
@@ -86,7 +86,7 @@ const LoveQuestionSection = () => {
               onMouseEnter={moveNo}
               onTouchStart={moveNo}
             >
-              MAYBE... 🤔
+              No way... 😏
             </motion.button>
           </motion.div>
         ) : (
@@ -102,14 +102,14 @@ const LoveQuestionSection = () => {
               animate={{ scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] }}
               transition={{ duration: 0.8, repeat: 3 }}
             >
-              🎂
+              🌹
             </motion.div>
             <p className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-3">
-              Yay! Get ready for the{" "}
-              <span className="text-gradient-love italic">best birthday ever</span>... ✨
+              You knew it too, deep down.{" "}
+              <span className="text-gradient-love italic">You were always mine.</span> 🌹
             </p>
             <p className="text-muted-foreground italic font-display">
-              I'm so glad you're mine.
+              And I will be yours. Always. Forever. No matter what.
             </p>
           </motion.div>
         )}

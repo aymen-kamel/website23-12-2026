@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import { Mail, X } from "lucide-react";
 
 const messages = [
-  "Happy Birthday, my love! You make every day feel like a celebration. 🎂❤️",
-  "I'm so grateful we're back together. You are my everything. 🥰✨",
-  "I promise to love you more and more every single day. Happy Birthday! 💖",
-  "You're not just my girlfriend, you're my best friend. I love you, Ranoummm! 🌹",
-  "May this birthday be as beautiful and special as you are to me. 🎈✨",
-  "I'm the luckiest man to have you by my side again. Happy Birthday! 🎂❤️",
-  "Here's to many more birthdays and beautiful memories together. I love you! ✨💖",
+  "You were always mine. Even when I didn't know it yet, my heart already did. 💖",
+  "No matter where life takes us, I will always find my way back to you. ❤️",
+  "The universe made you for me. I am certain of that. 💌✨",
+  "You’re not just my girlfriend — you’re my home. The place my heart belongs. 🌹",
+  "Distance taught me one thing: nothing in this world could make me stop loving you. 🌍",
+  "I chose you once. I choose you again every single day. And I always will. 💖",
+  "You are mine. I am yours. That is the only thing I’ve ever been sure of. ❤️✨",
 ];
 
 const DailyMessageSection = () => {
@@ -56,7 +56,7 @@ const DailyMessageSection = () => {
           <span className="text-gradient-love italic">Love</span> 💌
         </h2>
         <p className="text-muted-foreground italic font-display">
-          Click the envelope for your birthday message...
+          Click the envelope for a love message...
         </p>
       </motion.div>
 

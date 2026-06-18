@@ -3,14 +3,14 @@ import { useState } from "react";
 import { RefreshCw, Sparkles } from "lucide-react";
 
 const reasons = [
-  "Because your smile lights up my whole world. ✨",
-  "Because you have the kindest heart I've ever known. ❤️",
-  "Because you're my best friend and my soulmate. 👩‍❤️‍👨",
-  "Because you always know how to make me laugh. 😂",
-  "Because you're incredibly beautiful, inside and out. 😍",
-  "Because you never gave up on us. Thank you. 🙏❤️",
-  "Because you're the smartest person I know. 🧠✨",
-  "Because I can't imagine my life without you. 🌍❤️",
+  "Because even when we were apart, you never left my heart. 💖",
+  "Because the moment I saw you, I knew you were mine. ✨",
+  "Because no matter what happens, my heart always finds its way back to you. 🌹",
+  "Because loving you has never been a choice — it's just who I am. ❤️",
+  "Because you were written into my story before I even knew it. 💫",
+  "Because distance, time, and the whole world couldn't keep me from you. 🌍",
+  "Because I could search forever and never find someone more perfect for me. 💌",
+  "Because you were always mine. You just needed time to see it too. 💖",
 ];
 
 const FunnyGeneratorSection = () => {
@@ -54,11 +54,11 @@ const FunnyGeneratorSection = () => {
           <Sparkles className="w-4 h-4 text-gold" />
         </div>
         <h2 className="font-display text-4xl md:text-5xl text-foreground mb-3">
-          Why I{" "}
-          <span className="text-gradient-love italic">Love You</span>... ❤️
+          Why You Were{" "}
+          <span className="text-gradient-love italic">Always Mine</span>... 💖
         </h2>
         <p className="text-muted-foreground italic font-display">
-          There are infinite reasons. Here's one...
+          The universe had reasons. Here's one of them...
         </p>
       </motion.div>
 

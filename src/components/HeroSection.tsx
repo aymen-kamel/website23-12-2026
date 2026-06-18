@@ -31,11 +31,8 @@ const SparkDot = ({ x, y, delay }: { x: string; y: string; delay: number }) => (
 
 const HeroSection = ({ onStart }: HeroSectionProps) => {
   const startDate = new Date("2026-05-04T00:00:00");
-  const birthdayDate = new Date("2026-05-05T00:00:00");
 
   const [timeTogether, setTimeTogether] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [isBirthday, setIsBirthday] = useState(false);
-  const [countdown, setCountdown] = useState({ hours: 0, minutes: 0, seconds: 0 });
 
   const petals = useMemo(
     () => Array.from({ length: 12 }, (_, i) => ({
@@ -68,37 +65,16 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
         minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((diff % (1000 * 60)) / 1000),
       });
-      // Show birthday countdown only if birthday hasn't happened yet
-      if (now < birthdayDate) {
-        setIsBirthday(false);
-        const bDiff = birthdayDate.getTime() - now.getTime();
-        setCountdown({
-          hours: Math.floor(bDiff / (1000 * 60 * 60)),
-          minutes: Math.floor((bDiff % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((bDiff % (1000 * 60)) / 1000),
-        });
-      } else {
-        setIsBirthday(true);
-      }
     }, 1000);
-    // Immediately run once to set the right state on load
-    const now = new Date();
-    if (now >= birthdayDate) setIsBirthday(true);
     return () => clearInterval(timer);
   }, []);
 
-  const timeEntries = isBirthday
-    ? [
-        { value: timeTogether.days, label: "Days" },
-        { value: timeTogether.hours, label: "Hours" },
-        { value: timeTogether.minutes, label: "Min" },
-        { value: timeTogether.seconds, label: "Sec" },
-      ]
-    : [
-        { value: countdown.hours, label: "Hrs" },
-        { value: countdown.minutes, label: "Min" },
-        { value: countdown.seconds, label: "Sec" },
-      ];
+  const timeEntries = [
+    { value: timeTogether.days, label: "Days" },
+    { value: timeTogether.hours, label: "Hours" },
+    { value: timeTogether.minutes, label: "Min" },
+    { value: timeTogether.seconds, label: "Sec" },
+  ];
 
   return (
     <section
@@ -132,7 +108,7 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
       >
         <p className="text-xs font-semibold text-primary/80 uppercase tracking-[0.25em] text-center mb-3 flex items-center justify-center gap-2">
           <Sparkles className="w-3 h-3" />
-          {isBirthday ? "Time Since We Reunited" : "Countdown to Your Birthday 🕛"}
+          Time We've Been Together — Forever 💖
           <Sparkles className="w-3 h-3" />
         </p>
         <div className="flex gap-5 justify-center font-body">
@@ -163,7 +139,7 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
         transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
       >
         <p className="font-display text-sm md:text-base uppercase tracking-[0.35em] text-primary/70 mb-3 font-medium">
-          {isBirthday ? "Happy Birthday & Welcome Back" : "Welcome Back, My Love"}
+          You Were Always Mine
         </p>
         <h1 className="font-script text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-gradient-love leading-none mb-2">
           Ranoummm
@@ -182,9 +158,7 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: 0.5 }}
       >
-        {isBirthday
-          ? "Today is the most special day — it's your birthday, and we are finally back together. I love you more than words can ever say."
-          : "Every single day with you is a gift I'll never take for granted. You are my everything, forever and always."}
+        You were mine before you even knew it. You are mine now. And you will be mine every single day for the rest of time. That is a promise I will never break.
       </motion.p>
 
       {/* CTA Buttons */}
@@ -201,7 +175,7 @@ const HeroSection = ({ onStart }: HeroSectionProps) => {
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.96 }}
         >
-          🎁 Let's Celebrate!
+          ❤️ Always Yours, Always Mine
         </motion.button>
 
         <motion.button

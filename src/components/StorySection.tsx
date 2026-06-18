@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import { MessageCircleHeart } from "lucide-react";
 
 const chatMessages = [
-  { sender: "him", text: "I'm so happy we found our way back to each other. ❤️", delay: 1000 },
-  { sender: "her", text: "Me too. I missed you more than I can say. 🥰", delay: 2500 },
-  { sender: "him", text: "And guess what? It's finally midnight... 🕛", delay: 4000 },
-  { sender: "her", text: "Is it May 5th already? 🎈", delay: 5500 },
-  { sender: "him", text: "Yes! Happy Birthday, my beautiful Ranoummm! 🎂💖", delay: 7000 },
+  { sender: "him", text: "I need to tell you something I’ve believed for a long time... 💖", delay: 1000 },
+  { sender: "her", text: "What is it? Tell me... 🥰", delay: 2500 },
+  { sender: "him", text: "You were always mine. Even before we were together. ✨", delay: 4000 },
+  { sender: "her", text: "I think I’ve always known that too... 🌹", delay: 5500 },
+  { sender: "him", text: "And nothing in this world will ever change that. I love you, Ranoummm. ❤️", delay: 7000 },
 ];
 
 const StorySection = () => {
@@ -165,7 +165,7 @@ const StorySection = () => {
                 className="mt-6 pt-5 border-t border-white/5 text-center"
               >
                 <p className="font-script text-2xl text-primary">
-                  I'm so lucky to have you. Happy Birthday, my love! 🎂✨
+                  You were always mine. You always will be. 🌹❤️
                 </p>
               </motion.div>
             )}

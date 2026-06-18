@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const lines = [
-  "Happy Birthday, my beautiful Ranoummm! 🎂",
-  "Today is all about you, and I'm so happy I get to spend it with you.",
-  "You are the most amazing person I've ever met...",
-  "and having you back in my life is the best birthday gift I could ever ask for.",
-  "I promise to cherish you, respect you, and love you forever.",
-  "You deserve the world, and I'll spend my life trying to give it to you.",
-  "Happy Birthday, my love! ❤️🎉",
+  "My dearest Ranoummm… 💌",
+  "I want you to know something I believe with every part of me:",
+  "You were mine long before we were ever together.",
+  "The universe had already written your name in my heart — I just had to find my way to you.",
+  "And no matter what life brings, no matter how far apart we ever are,",
+  "I will always come back to you. Because you are mine. And I am yours.",
+  "Forever, without question, without doubt. ❤️",
 ];
 
 const LoveMessageSection = () => {
@@ -54,8 +54,8 @@ const LoveMessageSection = () => {
       >
         <p className="text-xs uppercase tracking-[0.35em] text-gold font-semibold mb-4">💌 A Letter to You</p>
         <h2 className="font-display text-4xl md:text-5xl text-foreground mb-3">
-          A Special{" "}
-          <span className="text-gradient-love italic">Birthday Message</span> ✨
+          You Were Always{" "}
+          <span className="text-gradient-love italic">Mine</span> ❤️
         </h2>
         <div className="section-divider mt-6" />
       </motion.div>

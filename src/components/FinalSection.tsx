@@ -15,7 +15,7 @@ const FinalSection = ({ onReplay }: FinalSectionProps) => {
         delay: (i * 0.35) % 8,
         duration: 6 + (i % 5) * 1.5,
         size: 14 + (i % 4) * 7,
-        emoji: ["🌸", "❤️", "🎂", "🎉", "💖", "✨", "🎈"][i % 7],
+        emoji: ["🌸", "❤️", "💖", "✨", "🌹", "💌", "🥰"][i % 7],
       })),
     []
   );
@@ -82,8 +82,8 @@ const FinalSection = ({ onReplay }: FinalSectionProps) => {
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
         >
-          Happy Birthday to the{" "}
-          <span className="text-gradient-love italic">Love of my Life</span>
+          You Were Always{" "}
+          <span className="text-gradient-love italic">Mine, Ranoummm</span>
         </motion.h2>
 
         {/* Script name */}
@@ -94,7 +94,7 @@ const FinalSection = ({ onReplay }: FinalSectionProps) => {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          Ranoummm! 🎂❤️
+          And you always will be. ❤️✨
         </motion.p>
 
         {/* Subtext */}
@@ -105,7 +105,7 @@ const FinalSection = ({ onReplay }: FinalSectionProps) => {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          You are my forever, and I'm so happy we are together today. I love you more than the stars, more than time itself.
+          Before we met, after we parted, and every single moment in between — my heart only ever knew your name. You are mine. I am yours. That’s just how it is.
         </motion.p>
 
         {/* Poem / quote */}
@@ -118,7 +118,7 @@ const FinalSection = ({ onReplay }: FinalSectionProps) => {
         >
           <div className="section-divider mb-4" />
           <p className="font-script text-2xl text-primary/60 italic leading-relaxed">
-            "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."
+            "You have always been mine. I was just waiting for you to see what I already knew."
           </p>
           <div className="section-divider mt-4" />
         </motion.div>
